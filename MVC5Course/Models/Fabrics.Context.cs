@@ -27,11 +27,11 @@ namespace MVC5Course.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Occupation> Occupation { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderLine> OrderLine { get; set; }
         public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<Client> Client { get; set; }
     
         public virtual ObjectResult<Product> QueryProduct()
         {

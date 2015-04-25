@@ -10,9 +10,8 @@ using MVC5Course.Models;
 
 namespace MVC5Course.Controllers
 {
-    public class OrdersController : Controller
+    public class OrdersController : BaseController
     {
-        private FabricsEntities db = new FabricsEntities();
 
         // GET: Orders
         public ActionResult Index()

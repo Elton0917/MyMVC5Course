@@ -1,0 +1,5 @@
+1.SRP原則
+2.ToList 效能稍差
+3.Repository 產生器
+4.git 指令  git push -u origin master
+5.自訂驗證

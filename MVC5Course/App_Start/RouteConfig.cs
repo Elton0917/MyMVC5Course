@@ -13,11 +13,11 @@ namespace MVC5Course
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-              name: "Test",
-              url: "{controller}.{action}",
-              defaults: new { controller = "JQuery", action = "each" }
-          );
+          //  routes.MapRoute(
+          //    name: "Test",
+          //    url: "{controller}.{action}",
+          //    defaults: new { controller = "JQuery", action = "each" }
+          //);
 
             routes.MapRoute(
                 name: "Default",

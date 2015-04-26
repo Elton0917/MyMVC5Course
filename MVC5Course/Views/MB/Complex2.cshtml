@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MVC5Course.Models.SampleViewModel>
+
+@{
+    ViewBag.Title = "Complex2";
+}
+
+<h2>Complex2</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+    </tr>
+    @{
+        var item = Model.ToArray();
+    }
+    @Html.BeginForm(){
+
+
+    @for (var i = 0; i < item.Length;i++ )
+    {
+        <tr>
+            <td>
+                @Html.EditorFor(modelItem => item[i].UserName)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => item[i].Password)
+            </td>
+            <td>
+                @Html.EditorFor(modelItem => item[i].Age)
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            <input type="submit" value="Update" />
+        </td>
+    </tr>
+    }
+
+</table>

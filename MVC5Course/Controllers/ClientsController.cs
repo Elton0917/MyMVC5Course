@@ -25,11 +25,27 @@ namespace MVC5Course.Controllers
         }
 
         // GET: Clients
-        public ActionResult Index()
-        {
-            var client = repoClient.在首頁取得客戶資料(10);
+        //public ActionResult Index()
+        //{
+        //    var client = repoClient.在首頁取得客戶資料(10);
 
-            return View(client.ToList());
+        //    return View(client.ToList());
+        //}
+        public ActionResult Index(string city,string gender = "M")
+        {
+            List<SelectListItem> Genders = new List<SelectListItem>();
+            Genders.Add(new SelectListItem { Text = "男生", Value = "M" });
+            Genders.Add(new SelectListItem { Text = "女生", Value = "F" });
+
+            ViewBag.Genders = new SelectList(Genders, "Value", "Text", gender);
+
+            var cities = repoClient.SearchCity(city);
+
+            var CitiesList = db.Client.Select(x => new { x.City}).Distinct().ToList();
+
+            ViewBag.cities = new SelectList(CitiesList,"City","City",city);
+
+            return View(cities.ToList());
         }
 
         // GET: Clients/Details/5
@@ -39,12 +55,20 @@ namespace MVC5Course.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             var client = repoClient.Find(id.Value);
+
             if (client == null)
             {
                 return HttpNotFound();
             }
             return View(client);
+        }
+
+        public ActionResult DetailOrder(int id = 0)
+        {
+            var DOrder = db.Order.Where(x => x.ClientId == id);
+            return View(DOrder);
         }
 
         // GET: Clients/Create

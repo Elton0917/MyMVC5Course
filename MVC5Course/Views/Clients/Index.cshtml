@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MVC5Course.Models.Client>
+﻿@model IEnumerable<Client>
 
 @{
     ViewBag.Title = "Index";
@@ -9,6 +9,8 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+@Html.DropDownList("cities1", ViewBag.cities as SelectList, "--請選擇城市--", new { onchange = "location.search = '?city=' + $('#cities1').val();" })
+@Html.DropDownList("gender", ViewBag.Genders as SelectList, "--請選擇性別--", new { onchange = "location.search = '?gender=' + $('#gender').val();" })
 <table class="table">
     <tr>
         <th>

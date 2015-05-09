@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@{
+    int[] a = new int[] { 1, 2, 3, 4, 5 };
+    
+    foreach(var i in a)
+    {
+        @i.ToString()
+    }
+    @:
+     foreach (var i in a)
+     {
+        @(i + " ")
+     }
+     @:
+     @:<ul>
+      foreach (var i in a)
+      {
+        <li>@i</li>
+      }
+    @:</ul>
+
+    string u = "<ul>";
+    string ue = "</ul>";
+    string l = "<li>";
+    string le = "</li>";
+    @u.ToString()
+    @:
+    foreach (var i in a)
+    {
+      @l.ToString()
+      @i.ToString()
+      @le.ToString()
+    }
+    @ue.ToString()
+}
+
